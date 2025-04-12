@@ -1,0 +1,7 @@
+@use "~azure-devops-ui/Core/_platformCommon.scss" as *;
+
+.work-item-form-dialog {
+    width: 70vw !important;
+    height: 90vh;
+    min-width: 640px;
+}
