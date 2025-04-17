@@ -14,8 +14,7 @@ interface State {
 
 export class App extends React.Component<{}, State> {
 
-    headerItem: IHeaderCommandBarItem[];
-    newSolutionModal: boolean = false;
+    headerItem: IHeaderCommandBarItem[]; 
 
     constructor(props: {}) {
         super(props);
@@ -29,7 +28,6 @@ export class App extends React.Component<{}, State> {
                 id: "create",
                 text: "New Solution",
                 onActivate: () => {
-                    console.log(this.newSolutionModal)
                     this.setState({ newSolutionModal: true })
                 },
                 iconProps: {
