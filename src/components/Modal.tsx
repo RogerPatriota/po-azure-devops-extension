@@ -39,9 +39,14 @@ export class Modal extends React.Component<{}, State> {
                 step: 3,
                 status: "third",
                 content: "Step 3"
+            },
+            {
+                step: 4,
+                status: "quarter",
+                content: "step 4    "
             }
-            ]
-        };
+        ]
+    };
     
     public render(): JSX.Element {
         return (
@@ -59,7 +64,7 @@ export class Modal extends React.Component<{}, State> {
                                     style={{ marginRight: "16px" }}
                                 >
                                     <div
-                                        className="title-m"
+                                        className="title-m mt-4 "
                                     >
                                         New Solution modal
                                     </div>
@@ -72,8 +77,8 @@ export class Modal extends React.Component<{}, State> {
                     <div className="w-2/3 flex flex-col progress-contet">
                         { this.steps[this.state.currentStep - 1].content }
                         <div className="flex items-end justify-between h-full mr-6 ml-6 mb-10">
-                            <Button text="Back" iconProps={{ iconName: "back"}} onClick={this.changePreviusStep} />
-                            <Button text="Next" primary={true} onClick={this.changeNextStep} />
+                            <Button text="Back" className="pr-6 pl-6 text-center" iconProps={{ iconName: "back"}} onClick={this.changePreviusStep} />
+                            <Button text="Next" className="w-[105.3px] pr-6 pl-6 text-center" primary={true} onClick={this.changeNextStep} />
                         </div>
                     </div>
                 </div>                    
