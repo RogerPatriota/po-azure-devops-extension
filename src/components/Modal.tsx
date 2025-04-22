@@ -5,11 +5,12 @@ import { CustomHeader, HeaderTitleArea } from "azure-devops-ui/Header"
 import { ProgressBar } from "./ProgressBar";
 import "../styles/modal.scss";
 import { Button } from "azure-devops-ui/Button";
+import FormBasic from "./FomBasic";
 
 export type IStep = {
     step: number;
     status: string;
-    content: string;
+    content: JSX.Element | string;
 }
 
 interface State {
@@ -28,7 +29,7 @@ export class Modal extends React.Component<{}, State> {
             {
                 step: 1,
                 status: "initial",
-                content: "Step 1"
+                content: <FormBasic />
             },
             {
                 step: 2,
@@ -63,7 +64,7 @@ export class Modal extends React.Component<{}, State> {
                                     className="flex-grom scroll-hidden mt-10"
                                     style={{ marginRight: "16px" }}
                                 >
-                                    <div className="title-l font-normal">
+                                    <div className="text-4xl text-gray-700">
                                         New Solution modal
                                     </div>
                                 </div>
@@ -75,8 +76,8 @@ export class Modal extends React.Component<{}, State> {
                     <div className="w-2/3 flex flex-col progress-contet">
                         { this.steps[this.state.currentStep - 1].content }
                         <div className="flex items-end justify-between h-full mr-6 ml-6 mb-10">
-                            <Button text="Back" className="w-[105px]" iconProps={{ iconName: "back"}} onClick={this.changePreviusStep} />
-                            <Button text="Next" className="w-[105px]" primary={true} onClick={this.changeNextStep} />
+                            <Button text="Back" className="w-[115px]" iconProps={{ iconName: "back"}} onClick={this.changePreviusStep} />
+                            <Button text="Next" className="w-[115px]" primary={true} onClick={this.changeNextStep} />
                         </div>
                     </div>
                 </div>                    

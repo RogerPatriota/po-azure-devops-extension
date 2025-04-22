@@ -22,7 +22,7 @@ export class App extends React.Component<{}, State> {
         this.state = {
             selectedTabId: "tab1"
         };
-
+        
         this.headerItem = [
             {
                 id: "create",
@@ -55,7 +55,8 @@ export class App extends React.Component<{}, State> {
                     <Tab name="Roadmap" id="tab2"></Tab>
                     <Tab name="Audit" id="tab3"></Tab>
                 </TabBar>
-                { this.state.newSolutionModal && <Modal /> }
+                <Modal /> 
+                {/* { this.state.newSolutionModal && <Modal /> } */}
             </Page>
         )
     }
