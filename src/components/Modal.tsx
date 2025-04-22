@@ -39,6 +39,11 @@ export class Modal extends React.Component<{}, State> {
                 step: 3,
                 status: "third",
                 content: "Step 3"
+            },
+            {
+                step: 4,
+                status: "fourth",
+                content: "Step 4"
             }
             ]
         };
@@ -51,16 +56,14 @@ export class Modal extends React.Component<{}, State> {
                 
                 <div className="flex flex-row h-full">
 
-                    <div className="w-1/3 pl-8 flex flex-col progress-bar">
-                        <CustomHeader>
+                    <div className="w-1/3 pl-8 pr-8 flex flex-col progress-bar">
+                        <CustomHeader className="border-b-2 border-gray-400">
                             <HeaderTitleArea>
                                 <div
-                                    className="flex-grom scroll-hidden"
+                                    className="flex-grom scroll-hidden mt-10"
                                     style={{ marginRight: "16px" }}
                                 >
-                                    <div
-                                        className="title-m"
-                                    >
+                                    <div className="title-l font-normal">
                                         New Solution modal
                                     </div>
                                 </div>
@@ -72,8 +75,8 @@ export class Modal extends React.Component<{}, State> {
                     <div className="w-2/3 flex flex-col progress-contet">
                         { this.steps[this.state.currentStep - 1].content }
                         <div className="flex items-end justify-between h-full mr-6 ml-6 mb-10">
-                            <Button text="Back" iconProps={{ iconName: "back"}} onClick={this.changePreviusStep} />
-                            <Button text="Next" primary={true} onClick={this.changeNextStep} />
+                            <Button text="Back" className="w-[105px]" iconProps={{ iconName: "back"}} onClick={this.changePreviusStep} />
+                            <Button text="Next" className="w-[105px]" primary={true} onClick={this.changeNextStep} />
                         </div>
                     </div>
                 </div>                    
