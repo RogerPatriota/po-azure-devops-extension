@@ -1,6 +1,6 @@
 import { CustomHeader, HeaderTitleArea } from "azure-devops-ui/Header";
 import React from "react";
-import { JSX } from "react";
+import Input from "./Input";
 
 function FormBasic(){
     return(
@@ -15,6 +15,16 @@ function FormBasic(){
                     </div>
                 </HeaderTitleArea>
             </CustomHeader>
+            <div className="pl-5 pr-7">
+                <label className="form-control w-full">
+                    <Input title={'Title'} description={'Descripe your solution title'}/>
+                    <div className="flex gap-7">
+                        <Input title={'What to do'} description={'Descripe your solution'}/>
+                        <Input title={'Why to do'} description={'Descripe your solution'}/>
+                    </div>
+                    <Input title={'Title'} description={'Descripe your solution title'}/>
+                </label>
+            </div>
         </div>
     )
 }

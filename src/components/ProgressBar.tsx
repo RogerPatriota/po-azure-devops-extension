@@ -17,14 +17,14 @@ function Item({ step, currentStep }: IIem) {
         return (
             <div key={step.step} className="flex items-center text-center pl-4">
                 <CircleChevronDown size={26} className="checkColor mr-4 mt-1"/>
-                <p className="text-2xl text-center">{step.status}</p>                        
+                <p className="text-xl text-center">{step.status}</p>                        
             </div>
         ) 
     } else if (step.step < currentStep) {
         return (
             <div key={step.step} className="flex items-center text-center">
                 <CircleCheck size={26} color="green" className="checkColor mr-4 mt-1"/>
-                <p className="text-2xl text-center text-gray-500">{step.status}</p>                        
+                <p className="text-xl text-center text-gray-500">{step.status}</p>                        
             </div>
         )
     }
@@ -32,7 +32,7 @@ function Item({ step, currentStep }: IIem) {
     return (
         <div key={step.step} className="flex items-center text-center">
             <CircleChevronRight size={26} className="checkColor mr-4 mt-1"/>
-            <p className="text-2xl text-center">{step.status}</p>                        
+            <p className="text-xl text-center">{step.status}</p>                        
         </div>
     )
 }
