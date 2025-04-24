@@ -6,6 +6,7 @@ import { Header, TitleSize } from "azure-devops-ui/Header"
 import { IHeaderCommandBarItem } from "azure-devops-ui/HeaderCommandBar";
 
 import { Modal } from "./components/Modal";
+import { SolutionProvider } from "./context/SolutionContext";
 
 interface State {
     selectedTabId?: string,
@@ -55,7 +56,9 @@ export class App extends React.Component<{}, State> {
                     <Tab name="Roadmap" id="tab2"></Tab>
                     <Tab name="Audit" id="tab3"></Tab>
                 </TabBar>
-                <Modal /> 
+                <SolutionProvider>
+                    <Modal />   
+                </SolutionProvider>
                 {/* { this.state.newSolutionModal && <Modal /> } */}
             </Page>
         )
