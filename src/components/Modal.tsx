@@ -5,7 +5,9 @@ import { CustomHeader, HeaderTitleArea } from "azure-devops-ui/Header"
 import { ProgressBar } from "./ProgressBar";
 import "../styles/modal.scss";
 import { Button } from "azure-devops-ui/Button";
+
 import FormBasic from "./FomBasic";
+import ButtonStep from "./ButtonStep";
 
 export type IStep = {
     step: number;
@@ -76,8 +78,8 @@ export class Modal extends React.Component<{}, State> {
                     <div className="w-2/3 flex flex-col progress-contet">
                         { this.steps[this.state.currentStep - 1].content }
                         <div className="flex items-end justify-between h-full mr-6 ml-6 mb-10">
-                            <Button text="Back" className="w-[115px]" iconProps={{ iconName: "back"}} onClick={this.changePreviusStep} />
-                            <Button text="Next" className="w-[115px]" primary={true} onClick={this.changeNextStep} />
+                            <ButtonStep text={"Back"} changeStep={this.changePreviusStep} iconProps={{ iconName: "back"}} currentStep={this.state.currentStep} />
+                            <ButtonStep text={"Next"} primary={true} changeStep={this.changeNextStep} currentStep={this.state.currentStep} />
                         </div>
                     </div>
                 </div>                    
@@ -87,7 +89,6 @@ export class Modal extends React.Component<{}, State> {
 
     private changeNextStep = () => {
         if (this.state.currentStep < this.steps.length) {
-            console.log(this.state.currentStep)
             this.setState({
                 currentStep: this.state.currentStep + 1
             })
@@ -96,7 +97,6 @@ export class Modal extends React.Component<{}, State> {
 
     private changePreviusStep = () => {
         if (this.state.currentStep > 1 && this.state.currentStep <= this.steps.length) {
-            console.log(this.state.currentStep)
             this.setState({
                 currentStep: this.state.currentStep - 1
             })

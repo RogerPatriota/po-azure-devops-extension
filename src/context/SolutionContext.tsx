@@ -9,7 +9,7 @@ type TSolutionContext = {
     updateSolution: (step: number, data: {}) => void
 }
 
-const SolutionContext = createContext<TSolutionContext | null>(null)
+export const SolutionContext = createContext<TSolutionContext | null>(null)
 
 export const SolutionProvider = ({ children }: TSolutionContextProps ) => {
     const [solution, setSolution] = useState<Record<string, any>>({});
@@ -30,4 +30,10 @@ export const SolutionProvider = ({ children }: TSolutionContextProps ) => {
 }
 
 
-export const useSolution = useContext(SolutionContext)
+export const useSolution = () => {
+    const context = useContext(SolutionContext);
+    if (!context) {
+        throw new Error("useSolution must be used within a SolutionProvider");
+    }
+    return context;
+};
