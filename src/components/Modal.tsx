@@ -6,10 +6,13 @@ import { ProgressBar } from "./ProgressBar";
 import "../styles/modal.scss";
 import { Button } from "azure-devops-ui/Button";
 
+import FormBasic from "./FomBasic";
+import ButtonStep from "./ButtonStep";
+
 export type IStep = {
     step: number;
     status: string;
-    content: string;
+    content: JSX.Element | string;
 }
 
 interface State {
@@ -28,7 +31,7 @@ export class Modal extends React.Component<{}, State> {
             {
                 step: 1,
                 status: "initial",
-                content: "Step 1"
+                content: <FormBasic />
             },
             {
                 step: 2,
@@ -42,8 +45,8 @@ export class Modal extends React.Component<{}, State> {
             },
             {
                 step: 4,
-                status: "quarter",
-                content: "step 4    "
+                status: "fourth",
+                content: "Step 4"
             }
         ]
     };
@@ -56,16 +59,14 @@ export class Modal extends React.Component<{}, State> {
                 
                 <div className="flex flex-row h-full">
 
-                    <div className="w-1/3 pl-8 flex flex-col progress-bar">
-                        <CustomHeader>
+                    <div className="w-1/3 pl-8 pr-8 flex flex-col progress-bar">
+                        <CustomHeader className="border-b-2 border-gray-400">
                             <HeaderTitleArea>
                                 <div
-                                    className="flex-grom scroll-hidden"
+                                    className="flex-grom scroll-hidden mt-10"
                                     style={{ marginRight: "16px" }}
                                 >
-                                    <div
-                                        className="title-m mt-4 "
-                                    >
+                                    <div className="text-4xl text-gray-700">
                                         New Solution modal
                                     </div>
                                 </div>
@@ -77,8 +78,8 @@ export class Modal extends React.Component<{}, State> {
                     <div className="w-2/3 flex flex-col progress-contet">
                         { this.steps[this.state.currentStep - 1].content }
                         <div className="flex items-end justify-between h-full mr-6 ml-6 mb-10">
-                            <Button text="Back" className="pr-6 pl-6 text-center" iconProps={{ iconName: "back"}} onClick={this.changePreviusStep} />
-                            <Button text="Next" className="w-[105.3px] pr-6 pl-6 text-center" primary={true} onClick={this.changeNextStep} />
+                            <ButtonStep text={"Back"} changeStep={this.changePreviusStep} iconProps={{ iconName: "back"}} currentStep={this.state.currentStep} />
+                            <ButtonStep text={"Next"} primary={true} changeStep={this.changeNextStep} currentStep={this.state.currentStep} />
                         </div>
                     </div>
                 </div>                    
@@ -88,7 +89,6 @@ export class Modal extends React.Component<{}, State> {
 
     private changeNextStep = () => {
         if (this.state.currentStep < this.steps.length) {
-            console.log(this.state.currentStep)
             this.setState({
                 currentStep: this.state.currentStep + 1
             })
@@ -97,7 +97,6 @@ export class Modal extends React.Component<{}, State> {
 
     private changePreviusStep = () => {
         if (this.state.currentStep > 1 && this.state.currentStep <= this.steps.length) {
-            console.log(this.state.currentStep)
             this.setState({
                 currentStep: this.state.currentStep - 1
             })
