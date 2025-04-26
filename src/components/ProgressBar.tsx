@@ -7,12 +7,12 @@ type StepProps = {
     currentStep: number;
 }
 
-type IIem = {
+type IItem = {
     step: IStep;
     currentStep: number;
 }
 
-function Item({ step, currentStep }: IIem) {
+function Item({ step, currentStep }: IItem) {
     if (step.step === currentStep) {
         return (
             <div key={step.step} className="flex items-center text-center pl-4">
