@@ -4,7 +4,6 @@ import { CustomDialog } from "azure-devops-ui/Dialog";
 import { CustomHeader, HeaderTitleArea } from "azure-devops-ui/Header"
 import { ProgressBar } from "./ProgressBar";
 import "../styles/modal.scss";
-import { Button } from "azure-devops-ui/Button";
 
 import FormBasic from "./FomBasic";
 import ButtonStep from "./ButtonStep";
@@ -59,14 +58,14 @@ export class Modal extends React.Component<{}, State> {
                 
                 <div className="flex flex-row h-full">
 
-                    <div className="w-1/3 pl-8 pr-8 flex flex-col progress-bar">
-                        <CustomHeader className="border-b-2 border-gray-400">
+                    <div className="w-1/4 flex flex-col progress-bar">
+                        <CustomHeader className="border-b-2 border-gray-400 pt-4 ml-6 mr-6 ">
                             <HeaderTitleArea>
                                 <div
-                                    className="flex-grom scroll-hidden mt-10"
+                                    className="flex-grom scroll-hidden text-center mt-4 justify-center"
                                     style={{ marginRight: "16px" }}
                                 >
-                                    <div className="text-4xl text-gray-700">
+                                    <div className="text-2xl text-gray-700">
                                         New Solution modal
                                     </div>
                                 </div>
@@ -75,7 +74,7 @@ export class Modal extends React.Component<{}, State> {
                         <ProgressBar steps={this.steps} currentStep={this.state.currentStep}/>          
                     </div>
                      
-                    <div className="w-2/3 flex flex-col progress-contet">
+                    <div className="w-3/4 flex flex-col progress-contet">
                         { this.steps[this.state.currentStep - 1].content }
                         <div className="flex items-end justify-between h-full mr-6 ml-6 mb-10">
                             <ButtonStep text={"Back"} changeStep={this.changePreviusStep} iconProps={{ iconName: "back"}} currentStep={this.state.currentStep} />
