@@ -23,15 +23,16 @@ export function Input(props: any) {
 
     return (
         <FormItem
-            className="w-[47%] mb-6"
+            className="w-[47%] mb-6 pl-1"
             label={props.title}
             message={props.description}
         >
             <TextField
+                className="rounded-md"
                 value={observable}
                 onChange={onChangeInput}
                 multiline
-                rows={props.row}
+                rows={props.row ?? '1'}
                 width={TextFieldWidth.auto}
             />
         </FormItem>

@@ -34,7 +34,7 @@ function Item({ step, currentStep }: IItem) {
     return (
         <div key={step.step} className="flex items-center text-center p-3 pl-8">
             <CircleCheck size={24} className="checkColor mr-4 mt-1"/>
-            <p className="text-lg text-center">{step.status}</p>                        
+            <p className="text-lg text-center text-gray-700">{step.status}</p>                        
         </div>
     )
 }
