@@ -18,23 +18,23 @@ function Item({ step, currentStep }: IItem) {
     if (step.step === currentStep) {
         return (
             <div key={step.step} className="flex items-center text-center bg-white p-3 pl-8">
-                <CircleCheck size={26} className="checkColor mr-4 mt-1"/>
-                <p className="text-xl text-center">{step.status}</p>                        
+                <CircleCheck size={24} className="checkColor mr-4 mt-1"/>
+                <p className="text-lg text-center">{step.status}</p>                        
             </div>
         ) 
     } else if (step.step < currentStep) {
         return (
             <div key={step.step} className="flex items-center text-center p-3 pl-8">
-                <CircleCheck size={26} color="green" className="checkColor mr-4 mt-1"/>
-                <p className="text-xl text-center text-gray-500">{step.status}</p>                        
+                <CircleCheck size={24} color="green" className="checkColor mr-4 mt-1"/>
+                <p className="text-lg text-center text-gray-500">{step.status}</p>                        
             </div>
         )
     }
 
     return (
         <div key={step.step} className="flex items-center text-center p-3 pl-8">
-            <CircleCheck size={26} className="checkColor mr-4 mt-1"/>
-            <p className="text-xl text-center">{step.status}</p>                        
+            <CircleCheck size={24} className="checkColor mr-4 mt-1"/>
+            <p className="text-lg text-center">{step.status}</p>                        
         </div>
     )
 }

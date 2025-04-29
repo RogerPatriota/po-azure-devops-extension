@@ -5,7 +5,7 @@ import { TabBar, Tab, TabSize } from "azure-devops-ui/Tabs";
 import { Header, TitleSize } from "azure-devops-ui/Header"
 import { IHeaderCommandBarItem } from "azure-devops-ui/HeaderCommandBar";
 
-import { Modal } from "./components/Modal";
+import Modal  from "./components/Modal";
 import { SolutionProvider } from "./context/SolutionContext";
 
 interface State {

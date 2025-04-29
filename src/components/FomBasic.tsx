@@ -19,10 +19,10 @@ function FormBasic(){
                 <label className="form-control w-full">
                     <Input title={'Title'} value={'title'} description={'Descripe your solution title'}/>
                     <div className="flex gap-7">
-                        <Input title={'What to do'} description={'Describe your solution'}/>
-                        <Input title={'Why to do'} description={'Describe your solution'}/>
+                        <Input title={'What to do'} row='4' description={'Describe your solution'}/>
+                        <Input title={'Why to do'} row='4' description={'Describe your solution'}/>
                     </div>
-                    <Input title={'Title'} description={'Descripe your solution title'}/>
+                    <Input title={'Teste'} description={'Descripe your solution title'}/>
                 </label>
             </div>
         </div>
