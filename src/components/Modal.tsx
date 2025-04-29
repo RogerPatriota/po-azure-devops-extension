@@ -7,6 +7,9 @@ import "../styles/modal.scss";
 
 import FormBasic from "./FomBasic";
 import ButtonStep from "./ButtonStep";
+import FormDetails  from "./FormDetails";
+import IAForm from "./IAForm"
+
 import { useSolution } from "../context/SolutionContext";
 
 export type IStep = {
@@ -21,22 +24,22 @@ const Modal: React.FC = () => {
     const steps: IStep[] = [
         {
             step: 1,
-            status: "initial",
+            status: "Initial information",
             content: <FormBasic />
         },
         {
             step: 2,
-            status: "second",
-            content: "Step 2"
+            status: "Details",
+            content: <FormDetails />
         },
         {
             step: 3,
-            status: "third",
-            content: "Step 3"
+            status: "Personas",
+            content: <IAForm />
         },
         {
             step: 4,
-            status: "fourth",
+            status: "Documentation",
             content: "Step 4"
         }
     ];
@@ -77,7 +80,7 @@ const Modal: React.FC = () => {
                     <ProgressBar steps={steps} currentStep={currentStep} />
                 </div>
 
-                <div className="w-3/4 flex flex-col progress-content">
+                <div className="w-3/4 flex flex-col max-h-full progress-content">
                     {steps[currentStep - 1]?.content}
 
                     <div className="flex items-end justify-between h-full mr-6 ml-6 mb-10">

@@ -8,7 +8,7 @@ import { useSolution } from "../context/SolutionContext";
 
 export function Input(props: any) {
     const { solution, updateSolution } = useSolution();
-    const { currentStep, updateCurrentStep } = useSolution();
+    const { currentStep } = useSolution();
 
     const currentValue = solution[currentStep]?.[props.title] ?? "";
     const observable = new ObservableValue<string | undefined>(currentValue);
@@ -23,7 +23,7 @@ export function Input(props: any) {
 
     return (
         <FormItem
-            className="w-[47%] mb-6 pl-1"
+            className={`mb-5 pl-1 ${(props.fullW) ? `w-full pr-10` : 'w-[47%]'}`}
             label={props.title}
             message={props.description}
         >
