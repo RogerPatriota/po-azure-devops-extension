@@ -1,0 +1,14 @@
+@use "~azure-devops-ui/Core/_platformCommon.scss" as *;
+
+
+.tab-group  {
+    background-color: $neutral-alpha-6;
+}
+
+
+.tab-active {
+    background-color: $neutral-alpha-10;
+    margin: 3px 3px;
+    border-radius: 7px;
+    border: 2px;
+}

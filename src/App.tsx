@@ -51,6 +51,7 @@ export class App extends React.Component<{}, State> {
                     onSelectedTabChanged={this.onTabChange}
                     selectedTabId={this.state.selectedTabId}
                     tabSize={TabSize.LargeLink}
+                    className=""
                 >
                     <Tab name="Overview" id="tab1"></Tab>
                     <Tab name="Roadmap" id="tab2"></Tab>
