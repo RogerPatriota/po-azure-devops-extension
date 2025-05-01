@@ -18,12 +18,12 @@ function IAForm() {
         {
             id: 2,
             persona: 'Stakeholders',
-            conent: <Questions />
+            conent: <Questions nQuestions={3}/>
         },
         {
             id: 3,
             persona: 'CX Expert',
-            conent: <Questions />
+            conent: <Questions nQuestions={3}/>
         }
     ]
 
@@ -93,7 +93,7 @@ function IAForm() {
                     />
                 </div>
                 <div className="relative">
-                    {tabs[activeTab].id}  
+                    {tabs[activeTab].conent}  
                 </div>                
             </div>
 
