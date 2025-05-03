@@ -83,7 +83,7 @@ const Modal: React.FC = () => {
                 <div className="w-3/4 flex flex-col max-h-full progress-content">
                     {steps[currentStep - 1]?.content}
 
-                    <div className="flex items-end justify-between h-full mr-6 ml-6 mb-10">
+                    <div className="flex items-end justify-between h-full mt-2 mr-6 ml-6 mb-10">
                         <ButtonStep
                             text="Back"
                             changeStep={changePreviousStep}

@@ -1,3 +1,5 @@
+import axios from "axios"
+import { Api }  from "./api/Api"
 
 
 // PRECISO
@@ -13,6 +15,18 @@
 // 8: FAZER A RELAÇÃO DOS DADOS COM O TEMPLATE
 // 9: CRIAR PAGINA
 
-export const ConfluenceService = {
 
+const getPageFromParentID = async (id: number) => {
+    
+    try {
+        const { data } = await Api().get('/content/' + id + '/child/page')
+        return data
+    } catch (error) {
+        return error
+    }
+    
+}
+
+export const ConfluenceService = {
+    getPageFromParentID
 }

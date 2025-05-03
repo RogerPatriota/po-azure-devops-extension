@@ -65,7 +65,7 @@ function IAForm() {
                     </HeaderTitleArea>
                 </CustomHeader>
             </div>
-            <div className="w-[90%] mx-auto flex flex-col gap-3">
+            <div className="max-h-[50vh] pl-5 pr-7 flex flex-col gap-3 overflow-y-scroll overflow-x-hidden">
                 <div role="tablist" ref={tabRef} className="tab-group w-full h-12 flex items-center justify-evenly mt-4 
                 relative border-2 rounded-lg py-4">
                     {tabs.map((tab, index) => (

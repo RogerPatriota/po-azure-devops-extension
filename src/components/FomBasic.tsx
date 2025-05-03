@@ -15,9 +15,9 @@ function FormBasic(){
                     </div>
                 </HeaderTitleArea>
             </CustomHeader>
-            <div className="pl-5 pr-7">
-                <label className="form-control w-full max-h-[550px] overflow-auto">
-                    <Input title={'Title'} description={'Descripe your solution title'}/>
+            <div className="max-h-[50vh] overflow-auto pl-5 pr-7">
+                <label className="form-control w-full">
+                    <Input title={'Title'} fullW={true} description={'Descripe your solution title'}/>
                     <div className="flex gap-7">
                         <Input title={'What to do'} row='4' description={'Describe your solution'}/>
                         <Input title={'Why to do'} row='4' description={'Describe your solution'}/>

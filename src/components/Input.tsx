@@ -28,7 +28,7 @@ export function Input(props: any) {
             message={props.description}
         >
             <TextField
-                className="rounded-md"
+                className="rounded-lg"
                 value={observable}
                 onChange={onChangeInput}
                 multiline

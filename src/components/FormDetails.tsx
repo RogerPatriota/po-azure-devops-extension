@@ -15,8 +15,8 @@ export function FormDetails() {
                     </div>
                 </HeaderTitleArea>
             </CustomHeader>
-            <div className="pl-5 pr-7">
-                <label className="form-control w-full max-h-[550px] overflow-auto">
+            <div className="container max-h-[50vh] overflow-auto pl-5 pr-7">
+                <label className="form-control w-full max-h-[550px]">
                     <Input title={'Problems'} fullW={true} row='4'  description={'Descripe your solution title'}/>
                     <Input title={'Need'} fullW={true} row='4'  description={'Descripe your solution title'}/>
                     <Input title={'Solution Description'} fullW={true} row='4' description={'Descripe your solution title'}/>

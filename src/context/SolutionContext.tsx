@@ -29,7 +29,7 @@ export const SolutionProvider = ({ children }: TSolutionContextProps ) => {
         ))
     }
 
-    const [currentStep, setCurrentStep] = useState(3)
+    const [currentStep, setCurrentStep] = useState(1)
 
     const updateCurrentStep = (value: number) => {
         setCurrentStep(value)
