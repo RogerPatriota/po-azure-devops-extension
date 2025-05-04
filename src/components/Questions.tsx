@@ -7,7 +7,7 @@ function Questions(props: any) {
     const q = []
     for (let i = 0; i < props.nQuestions; i++) {
         q.push(
-            <div className="collapse collapse-arrow question border-b-8">
+            <div key={i} className="collapse collapse-arrow question border-b-8">
                 <input type="radio" name="my-accordion-2"/>
                 <div className="collapse-title text-lg font-medium">Question #{i+1}</div>
                 <div className="collapse-content">

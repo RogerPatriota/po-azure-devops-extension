@@ -11,6 +11,7 @@ import FormDetails  from "./FormDetails";
 import IAForm from "./IAForm"
 
 import { useSolution } from "../context/SolutionContext";
+import Documentation from "./Ducumentation";
 
 export type IStep = {
     step: number;
@@ -40,7 +41,7 @@ const Modal: React.FC = () => {
         {
             step: 4,
             status: "Documentation",
-            content: "Step 4"
+            content: <Documentation />
         }
     ];
 
