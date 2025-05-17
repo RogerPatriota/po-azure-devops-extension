@@ -17,8 +17,8 @@ type IItem = {
 function Item({ step, currentStep }: IItem) {
     if (step.step === currentStep) {
         return (
-            <div key={step.step} className="flex items-center text-center bg-white p-3 pl-8">
-                <CircleCheck size={24} className="checkColor mr-4 mt-1"/>
+            <div key={step.step} className="flex items-center text-center bg-gray-200 border-2 border-gray-500 opacity-70 mx-5 mr-10 p-3 rounded-2xl">
+                <CircleCheck size={24} className="checkColor mr-4 mt-1 opacity-100"/>
                 <p className="text-lg text-center">{step.status}</p>                        
             </div>
         ) 

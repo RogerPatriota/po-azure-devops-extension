@@ -19,7 +19,7 @@ import { Api }  from "./api/Api"
 const getPageFromParentID = async (id: number) => {
     
     try {
-        const { data } = await Api().get('/content/' + id + '/child/page')
+        const { data } = await Api().get('?id=' + id)
         return data
     } catch (error) {
         return error
