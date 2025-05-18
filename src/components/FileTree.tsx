@@ -21,12 +21,12 @@ const FileTree: React.FC<FileTreeProps> = ({ nodes, selectedId, onSelect }) => {
     }
 
     return (
-        <ul className="menu menu-md p-0">
+        <ul className="menu menu-md p-0 w-full">
             {nodes.map((node) => (
                 <li key={node.id}>
                     <div
                         onClick={() => onSelect(node.id)}
-                        className={`pt-0 cursor-pointer flex items-center gap-2 px-2 py-1 rounded ${
+                        className={`cursor-pointer flex items-center gap-2 px-4 py-2 rounded ${
                             node.id === selectedId
                                 ? 'bg-blue-200 hover:bg-blue-200'
                                 : 'hover:bg-gray-200'
@@ -37,35 +37,39 @@ const FileTree: React.FC<FileTreeProps> = ({ nodes, selectedId, onSelect }) => {
                                 {openId === node.id ? (
                                     <>
                                         <ChevronDown
-                                            size={18}
+                                            size={22}
+                                            strokeWidth={1}
                                             onClick={(e) => {
                                                 e.stopPropagation()
                                                 toggleFolder(node.id)
                                             }}
+                                            className="hover:bg-gray-200"
                                         />
-                                        <FolderOpen size={18} />
+                                        <FolderOpen size={22} strokeWidth={1} />
                                     </>
                                 ) : (
                                     <>
                                         <ChevronRight
-                                            size={18}
+                                            size={22}
+                                            strokeWidth={1}
                                             onClick={(e) => {
                                                 e.stopPropagation()
                                                 toggleFolder(node.id)
                                             }}
+                                            className="hover:bg-gray-200"
                                         />
-                                        <Folders size={18} />
+                                        <Folders size={22} strokeWidth={1} />
                                     </>
                                 )}
                             </div>
                         ) : (
-                            <FileText size={18} />
+                            <FileText size={22} strokeWidth={1} />
                         )}
-                        {node.title}
+                        <span className="w-full">{node.title}</span>
                     </div>
 
                     {hasChildren(node) && openId === node.id && (
-                        <div className="ml-4">
+                        <div className="px-4 py-2">
                             <FileTree
                                 nodes={node.children}
                                 selectedId={selectedId}

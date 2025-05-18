@@ -20,7 +20,7 @@ function Documentation() {
             } catch (error) {
                 console.log('erro on api:', error )
             } finally {
-                
+                setLoading(false)
             }
         }
 
@@ -40,20 +40,32 @@ function Documentation() {
                     </div>
                 </HeaderTitleArea>
             </CustomHeader>
-            <div className="max-h-[600px] overflow-y-auto p-4 mt-7 flex justify-center items-center">
-                {loading && (
-                    <span className="loading loading-spinner flex justify-center items-center w-20"></span>
-                )}
-                {/* {!loading && pages.length > 0 && (
-                    <div>
-                        <FileTree nodes={pages} selectedId={selectedPage} onSelect={setSelectedPage} />
-                    </div>
-                )}
-                {!loading && pages.length == 0 && (
-                    <div>
-                        Paginas nao encontradas
-                    </div>    
+            <div className="max-h-[50vh] h-[50vh] flex flex-row y gap-4 p-4 mt-10">
+                {/* {loading && (
+                    <span className="loading loading-spinner flex justify-center items-center w-20 bg-blue-600"></span>
                 )} */}
+                <div className="w-[50%] pt-2 pl-4 pr-8 overflow-auto border-2 border-gray-500">
+                    <h1 className="mb-1 text-lg">Where to create</h1>
+                    <h3 className="mb-3">Select the page that the doc will b</h3>
+                    {!loading && pages.length > 0 && (
+                        <div>
+                            <FileTree nodes={pages} selectedId={selectedPage} onSelect={setSelectedPage} />
+                        </div>
+                    )}
+                    {!loading && pages.length == 0 && (
+                        <div>
+                            Paginas nao encontradas
+                        </div>    
+                    )}                    
+                </div>
+                <div className="w-[50%] border-2 border-gray-500 pt-2 pl-4 pr-8 ">
+                    <h1 className="mb-1 text-lg">Where to create</h1>
+                    <h3 className="mb-3">Select the page that the doc will b</h3>
+                    <div className="w-30 h-20 bg-green-500">
+
+                    </div>
+                </div>
+
             </div>
         </div>
     )
