@@ -26,7 +26,7 @@ const FileTree: React.FC<FileTreeProps> = ({ nodes, selectedId, onSelect }) => {
                 <li key={node.id}>
                     <div
                         onClick={() => onSelect(node.id)}
-                        className={`cursor-pointer flex items-center gap-2 px-4 py-2 rounded ${
+                        className={`cursor-pointer flex items-center gap-2 px-4 py-2 rounded-xl ${
                             node.id === selectedId
                                 ? 'bg-blue-200 hover:bg-blue-200'
                                 : 'hover:bg-gray-200'

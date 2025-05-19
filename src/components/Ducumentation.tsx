@@ -3,6 +3,7 @@ import { ConfluenceService } from "../services/confluenceService"
 import FileTree from "./FileTree"
 import { NodePage } from "../types/FileTreeType"
 import { CustomHeader, HeaderTitleArea } from "azure-devops-ui/Header"
+import TemplateInput from "./TemplateInput"
 
 function Documentation() {
     const [pages, setPages] = useState<NodePage[]>([])
@@ -40,11 +41,11 @@ function Documentation() {
                     </div>
                 </HeaderTitleArea>
             </CustomHeader>
-            <div className="max-h-[50vh] h-[50vh] flex flex-row y gap-4 p-4 mt-10">
+            <div className="max-h-[50vh] h-[50vh] flex flex-row y gap-4 p-4">
                 {/* {loading && (
                     <span className="loading loading-spinner flex justify-center items-center w-20 bg-blue-600"></span>
                 )} */}
-                <div className="w-[50%] pt-2 pl-4 pr-8 overflow-auto border-2 border-gray-500">
+                <div className="w-[50%] pt-2 pl-4 pr-8 overflow-auto border-2 rounded-md ">
                     <h1 className="mb-1 text-lg">Where to create</h1>
                     <h3 className="mb-3">Select the page that the doc will b</h3>
                     {!loading && pages.length > 0 && (
@@ -58,11 +59,11 @@ function Documentation() {
                         </div>    
                     )}                    
                 </div>
-                <div className="w-[50%] border-2 border-gray-500 pt-2 pl-4 pr-8 ">
+                <div className="w-[50%] border-2 rounded-md pt-2 pl-4 pr-8 ">
                     <h1 className="mb-1 text-lg">Where to create</h1>
                     <h3 className="mb-3">Select the page that the doc will b</h3>
-                    <div className="w-30 h-20 bg-green-500">
-
+                    <div className="">
+                        <TemplateInput />
                     </div>
                 </div>
 
