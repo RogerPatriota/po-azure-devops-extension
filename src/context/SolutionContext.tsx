@@ -21,13 +21,25 @@ export const SolutionProvider = ({ children }: TSolutionContextProps ) => {
         4: {}
     });
 
-    const updateSolution = (step: number, data: {}) => {
-        setSolution(((prev) => ({
-            ...prev,
-            [step]: {...prev[step], ...data}
-        })
-        ))
-    }
+    const updateSolution = (step: number, data: Record<string, any>) => {
+        setSolution((prev) => {
+            const prevStep = prev[step] || {};
+            const newStep = { ...prevStep };
+
+            for (const key in data) {
+                if (typeof data[key] === 'object' && typeof prevStep[key] === 'object') {
+                    newStep[key] = { ...prevStep[key], ...data[key] };
+                } else {
+                    newStep[key] = data[key];
+                }
+            }
+
+            return {
+                ...prev,
+                [step]: newStep
+            };
+        });
+    };
 
     const [currentStep, setCurrentStep] = useState(4)
 
