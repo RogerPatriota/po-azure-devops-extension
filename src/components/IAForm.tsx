@@ -13,17 +13,17 @@ function IAForm() {
         {
             id: 1,
             persona: 'Product Owner',
-            conent: <Questions />
+            conent: <Questions persona='product owner'/>
         },
         {
             id: 2,
             persona: 'Stakeholders',
-            conent: <Questions nQuestions={3}/>
+            conent: <Questions nQuestions={3} persona='stakeholders'/>
         },
         {
             id: 3,
             persona: 'CX Expert',
-            conent: <Questions nQuestions={3}/>
+            conent: <Questions nQuestions={3} persona='cx expert'/>
         }
     ]
 

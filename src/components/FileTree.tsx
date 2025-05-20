@@ -28,7 +28,7 @@ const FileTree: React.FC<FileTreeProps> = ({ nodes, selectedId, onSelect }) => {
                         onClick={() => onSelect(node.id)}
                         className={`cursor-pointer flex items-center gap-2 px-4 py-2 rounded-xl ${
                             node.id === selectedId
-                                ? 'bg-blue-200 hover:bg-blue-200'
+                                ? 'bg-cyan-100 border border-cyan-500 hover:bg-cyan-200'
                                 : 'hover:bg-gray-200'
                         }`}
                     >
@@ -43,7 +43,7 @@ const FileTree: React.FC<FileTreeProps> = ({ nodes, selectedId, onSelect }) => {
                                                 e.stopPropagation()
                                                 toggleFolder(node.id)
                                             }}
-                                            className="hover:bg-gray-200"
+                                            className="hover:bg-gray-200 rounded-full"
                                         />
                                         <FolderOpen size={22} strokeWidth={1} />
                                     </>
@@ -56,7 +56,7 @@ const FileTree: React.FC<FileTreeProps> = ({ nodes, selectedId, onSelect }) => {
                                                 e.stopPropagation()
                                                 toggleFolder(node.id)
                                             }}
-                                            className="hover:bg-gray-200"
+                                            className="hover:bg-gray-200 rounded-full"
                                         />
                                         <Folders size={22} strokeWidth={1} />
                                     </>

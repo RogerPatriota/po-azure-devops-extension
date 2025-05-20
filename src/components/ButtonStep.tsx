@@ -21,8 +21,14 @@ export function ButtonStep(props: TButtonProps) {
                 break
             case (2):
                 console.log(2)
+                console.log(solution)
                 break
             case (3):
+                console.log(3)
+                console.log(solution)
+                break
+            case(4):
+                console.log(4)
                 console.log(solution)
                 break
         }
