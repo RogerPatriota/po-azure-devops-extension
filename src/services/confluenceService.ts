@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Api }  from "./api/Api"
+import { ConfluenceApi }  from "./api/Api"
 
 
 // PRECISO
@@ -19,7 +19,7 @@ import { Api }  from "./api/Api"
 const getPageFromParentID = async (id: number) => {
     
     try {
-        const { data } = await Api().get('?id=' + id)
+        const { data } = await ConfluenceApi().get('?id=' + id)
         return data
     } catch (error) {
         return error

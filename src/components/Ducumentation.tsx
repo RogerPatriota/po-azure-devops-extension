@@ -6,6 +6,17 @@ import { NodePage } from "../types/FileTreeType"
 import { CustomHeader, HeaderTitleArea } from "azure-devops-ui/Header"
 import TemplateInput from "./TemplateInput"
 import "../styles/main.scss"
+import { timeStamp } from "console"
+
+
+const getPages = async () => {
+    const data = await ConfluenceService.getPageFromParentID(347397859)
+    const response = await data
+    
+    return response.pages
+}
+
+const CACHE_DURATION = 14 * 60 * 60 * 1000
 
 function Documentation() {
     const [pages, setPages] = useState<NodePage[]>([])
@@ -14,12 +25,27 @@ function Documentation() {
 
     useEffect(() => {
 
-        const fetchPages = async () => {
+        const loadPages = async () => {
+            const cacheLocal = localStorage.getItem("pagesCache")
+
+            if (cacheLocal) {
+                const {data, timestamp } = JSON.parse(cacheLocal)
+                const now = Date.now()
+
+                if (now - timestamp < CACHE_DURATION) {
+                    setPages(data)
+                    setLoading(false)
+                    return;
+                }
+            }
+
             try {
-                // const data = await ConfluenceService.getPageFromParentID(347397859)
-                const response = await fetch('http://127.0.0.1:8000/async');
-                const data = await response.json();
-                setPages(data.message);
+                const data = await getPages()
+                setPages(data)
+                localStorage.setItem(
+                    "pagesCache",
+                    JSON.stringify({ data: data, timestamp: Date.now() })
+                )
             } catch (error) {
                 console.log('erro on api:', error )
             } finally {
@@ -27,9 +53,10 @@ function Documentation() {
             }
         }
 
-        fetchPages()
+        loadPages()
 
     }, [])
+
 
     return (
         <div>

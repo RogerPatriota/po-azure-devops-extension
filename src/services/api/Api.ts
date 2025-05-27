@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const Api = () => {
+export const ConfluenceApi = () => {
     return axios.create({
-        baseURL: 'https://poazconfluence.azurewebsites.net/api/check_point',
+        baseURL: 'https://poazconfluence.azurewebsites.net/api/get_pages',
     })
 }

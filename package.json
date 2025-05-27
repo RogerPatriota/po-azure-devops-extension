@@ -19,6 +19,7 @@
     "azure-devops-extension-sdk": "^1.1.2",
     "azure-devops-ui": "^2.254.1",
     "lucide-react": "^0.435.0",
+    "openai": "^4.100.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
