@@ -5,8 +5,12 @@ import { TabBar, Tab, TabSize } from "azure-devops-ui/Tabs";
 import { Header, TitleSize } from "azure-devops-ui/Header"
 import { IHeaderCommandBarItem } from "azure-devops-ui/HeaderCommandBar";
 
+import * as SDK from "azure-devops-extension-sdk"
+
 import Modal  from "./components/Modal";
 import { SolutionProvider } from "./context/SolutionContext";
+import { IExtensionDataManager, IExtensionDataService } from "azure-devops-extension-api";
+
 
 interface State {
     selectedTabId?: string,
@@ -23,6 +27,8 @@ export class App extends React.Component<{}, State> {
         this.state = {
             selectedTabId: "tab1"
         };
+
+        this.teste_get()
         
         this.headerItem = [
             {
@@ -58,9 +64,8 @@ export class App extends React.Component<{}, State> {
                     <Tab name="Audit" id="tab3"></Tab>
                 </TabBar>
                 <SolutionProvider>
-                    <Modal />   
+                    { this.state.newSolutionModal && <Modal onClose={() => this.setState({ newSolutionModal: false })}/> }
                 </SolutionProvider>
-                {/* { this.state.newSolutionModal && <Modal /> } */}
             </Page>
         )
     }
@@ -69,5 +74,44 @@ export class App extends React.Component<{}, State> {
         this.setState(
             { selectedTabId: tabId }
         )
+    }
+
+    private teste = () => {
+        SDK.init();
+        
+        if (!SDK.getConfiguration()) {
+            return "error";
+        }
+
+        const contributionId = SDK.getContributionId();
+        if (!contributionId) {
+            return "error";
+        }
+
+        SDK.getService<IExtensionDataManager>(contributionId).then(function(dataService) {
+            var teste = {
+                nome: "roger",
+                age: "21"
+            }
+            dataService.createDocument("MyCollection", teste).then(function(doc) {
+                console.log("Relatorio teste: " + doc.id)
+            })
+        })
+    };
+
+    private teste_get = () => {
+        SDK.init();
+
+        const contributionId = SDK.getContributionId();
+        if (!contributionId) {
+            return "error";
+        }
+
+        SDK.getService<IExtensionDataManager>(contributionId).then(function(dataService) {
+            dataService.getDocument("MyCollection", "1").then(function(doc) {
+                console.log(doc)
+            })
+        })
+
     }
 }

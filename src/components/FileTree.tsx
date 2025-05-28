@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Icon } from "azure-devops-ui/Icon"
 import { NodePage } from "../types/FileTreeType"
 import { Folders, FolderOpen, FileText, ChevronDown, ChevronRight } from "lucide-react"
 
@@ -28,7 +27,7 @@ const FileTree: React.FC<FileTreeProps> = ({ nodes, selectedId, onSelect }) => {
                         onClick={() => onSelect(node.id)}
                         className={`cursor-pointer flex items-center gap-2 px-4 py-2 rounded-xl ${
                             node.id === selectedId
-                                ? 'bg-cyan-100 border border-cyan-500 hover:bg-cyan-200'
+                                ? 'bg-cyan-100 border border-blue-500 hover:bg-cyan-200'
                                 : 'hover:bg-gray-200'
                         }`}
                     >

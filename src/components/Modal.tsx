@@ -2,16 +2,19 @@ import React from "react";
 
 import { CustomDialog } from "azure-devops-ui/Dialog";
 import { CustomHeader, HeaderTitleArea } from "azure-devops-ui/Header";
-import { ProgressBar } from "./ProgressBar";
+import { X } from "lucide-react";
+
 import "../styles/modal.scss";
 
 import FormBasic from "./FomBasic";
 import ButtonStep from "./ButtonStep";
 import FormDetails  from "./FormDetails";
 import IAForm from "./IAForm"
+import { ProgressBar } from "./ProgressBar";
+import Documentation from "./Ducumentation";
 
 import { useSolution } from "../context/SolutionContext";
-import Documentation from "./Ducumentation";
+
 
 export type IStep = {
     step: number;
@@ -19,7 +22,11 @@ export type IStep = {
     content: JSX.Element | string;
 }
 
-const Modal: React.FC = () => {
+type TModal = {
+    onClose: () => void
+}
+
+const Modal: React.FC<TModal> = ({ onClose }) => {
     const { currentStep, updateCurrentStep } = useSolution();
 
     const steps: IStep[] = [
@@ -63,7 +70,7 @@ const Modal: React.FC = () => {
             modal={true}
             calloutContentClassName="work-item-form-dialog flex flex-row"
         >
-            <div className="flex flex-row h-full">
+            <div className="relative flex flex-row h-full">
                 <div className="w-1/4 flex flex-col progress-bar">
                     <CustomHeader className="border-b-2 border-gray-400 pt-4 ml-6 mr-6">
                         <HeaderTitleArea>
@@ -99,6 +106,7 @@ const Modal: React.FC = () => {
                         />
                     </div>
                 </div>
+                <X onClick={onClose} size={28} className="m-2 p-1 top-2 right-2 absolute hover:bg-gray-200 rounded-full"/>
             </div>
         </CustomDialog>
     );
