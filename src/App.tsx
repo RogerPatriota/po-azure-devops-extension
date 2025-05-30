@@ -19,7 +19,8 @@ interface State {
 
 export class App extends React.Component<{}, State> {
 
-    headerItem: IHeaderCommandBarItem[]; 
+    headerItem: IHeaderCommandBarItem[];
+    contents: {};
 
     constructor(props: {}) {
         super(props);
@@ -28,7 +29,14 @@ export class App extends React.Component<{}, State> {
             selectedTabId: "tab1"
         };
 
-        this.teste_get()
+        this.contents = {
+            "tab1": "tab1",
+            "tab2": "tab2",
+            "tab3": "tab3"
+        }
+
+        //this.teste()
+        //this.teste_get()
         
         this.headerItem = [
             {
@@ -65,6 +73,7 @@ export class App extends React.Component<{}, State> {
                 </TabBar>
                 <SolutionProvider>
                     { this.state.newSolutionModal && <Modal onClose={() => this.setState({ newSolutionModal: false })}/> }
+                    {this.showContent()}
                 </SolutionProvider>
             </Page>
         )
@@ -74,6 +83,10 @@ export class App extends React.Component<{}, State> {
         this.setState(
             { selectedTabId: tabId }
         )
+    }
+
+    private showContent = () => {
+        return 'teste'
     }
 
     private teste = () => {
