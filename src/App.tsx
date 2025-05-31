@@ -35,8 +35,7 @@ export class App extends React.Component<{}, State> {
             "tab3": "tab3"
         }
 
-        //this.teste()
-        //this.teste_get()
+        this.teste_get()
         
         this.headerItem = [
             {
@@ -86,7 +85,7 @@ export class App extends React.Component<{}, State> {
     }
 
     private showContent = () => {
-        return 'teste'
+        return 'testess'
     }
 
     private teste = () => {
@@ -113,14 +112,18 @@ export class App extends React.Component<{}, State> {
     };
 
     private teste_get = () => {
-        SDK.init();
 
         const contributionId = SDK.getContributionId();
+        
         if (!contributionId) {
             return "error";
         }
 
+        const tata = async () => { return await SDK.getService(contributionId) }
+        console.log(tata())
+
         SDK.getService<IExtensionDataManager>(contributionId).then(function(dataService) {
+            console.log(dataService)
             dataService.getDocument("MyCollection", "1").then(function(doc) {
                 console.log(doc)
             })

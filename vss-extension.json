@@ -3,7 +3,7 @@
     "id": "po-extension",
     "name": "Product Owner Control",
     "publisher": "ntt-po",
-    "version": "0.0.2",
+    "version": "0.0.5",
     "description": "A Azure DevOps extension to control new projects and centralize all process",
     "public": false,
     "categories": ["Azure Boards"],
@@ -21,7 +21,7 @@
     "icons": {
         "default": "images/download.jpg"
     },
-    "baseUri": "https://localhost:8080",
+    "baseUri": "https://localhost:3000",
     "contributions": [
          {
             "id": "po-control-hub",
@@ -32,15 +32,11 @@
             "properties": {
                 "name": "PO Control",
                 "order": 30,
-                "uri": "dist/index.html"
+                "uri": "index.html"
             }
         }
     ],
     "files": [
-        {
-            "path": "src/index.html",
-            "addressable": true
-        },
         {
             "path": "dist",
             "addressable": true
